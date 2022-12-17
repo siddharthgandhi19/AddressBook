@@ -2,7 +2,7 @@
 
 namespace AddressBook
 {
-    class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
@@ -17,7 +17,13 @@ namespace AddressBook
                 switch (option)
                 {
                     case 1:
-                        add.Create();
+                        Console.WriteLine("How many contact you want to create?\n");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        while (num > 0)
+                        {
+                            add.Create();
+                            num--;
+                        }
                         break;
                     case 2:
                         add.Edit();
