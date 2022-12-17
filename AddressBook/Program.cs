@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace AddressBook
 {
@@ -12,7 +13,7 @@ namespace AddressBook
             while (choice)
             {
                 Console.WriteLine("What to you want to do?\n");
-                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Delete a Contact\n4. Create a Contact Dictionary\n5. Display Dictionary\n6. Multiple Person In a City Or State\n7. Exit");
+                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Delete a Contact\n4. Create a Contact Dictionary\n5. Display Dictionary\n6. Multiple Person In a City Or State\n7. Search person using city\n8.Total person in City or state\n9. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -39,7 +40,17 @@ namespace AddressBook
                         add.DisplayDictionary();
                         break;
                     case 6:
+                        Console.WriteLine("Enter the city or state to search : ");
                         add.SearchPersonInCityOrState();
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter the city or state to search : ");
+                        add.SearchPersonInCityOrState();
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter the city or state to search : ");
+                        string searchCityOrStateTotalPerson = Console.ReadLine();
+                        add.SearchTotalPersonCityOrStateInMultipleContactBookInDictonary(searchCityOrStateTotalPerson);
                         break;
                     default:
                         Console.WriteLine("Try Again");
