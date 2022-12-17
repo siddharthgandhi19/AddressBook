@@ -38,8 +38,8 @@ namespace AddressBook
             Console.WriteLine("Enter your Phone Number");
             contact.PhoneNumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter your Email Id");
-            contact.Email = Console.ReadLine();
-            address.Add(contact);
+            contact.Email = Console.ReadLine(); 
+            CheckForDuplicacy(address, contact);
         }
         public void Edit()
         {
@@ -121,6 +121,18 @@ namespace AddressBook
                     Console.WriteLine(contact.FirstName + "\t" + contact.LastName);
                 }
             }
+        }
+        public void CheckForDuplicacy(List<Contact> address, Contact contact)
+        {
+            if (address.Any())
+            {
+                if (address.Any(e => e.FirstName == contact.FirstName))//Lambda expression
+                {
+                    Console.WriteLine("A person with name {0} is already existed", contact.FirstName);
+                    return;
+                }
+            }
+            address.Add(contact);
         }
     }
 }
