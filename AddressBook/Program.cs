@@ -12,7 +12,7 @@ namespace AddressBook
             while (choice)
             {
                 Console.WriteLine("What to you want to do?\n");
-                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Delete a Contact\n4. Create a Contact Dictionary\n5. Display Dictionary\n6. Exit");
+                Console.WriteLine("1. Create a Contact\n2. Edit a Contact\n3. Delete a Contact\n4. Create a Contact Dictionary\n5. Display Dictionary\n6. Multiple Person In a City Or State\n7. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -37,6 +37,9 @@ namespace AddressBook
                         break;
                     case 5:
                         add.DisplayDictionary();
+                        break;
+                    case 6:
+                        add.SearchPersonInCityOrState();
                         break;
                     default:
                         Console.WriteLine("Try Again");

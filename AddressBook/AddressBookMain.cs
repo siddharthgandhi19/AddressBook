@@ -38,7 +38,7 @@ namespace AddressBook
             Console.WriteLine("Enter your Phone Number");
             contact.PhoneNumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter your Email Id");
-            contact.Email = Console.ReadLine(); 
+            contact.Email = Console.ReadLine();
             CheckForDuplicacy(address, contact);
         }
         public void Edit()
@@ -133,6 +133,14 @@ namespace AddressBook
                 }
             }
             address.Add(contact);
+        }
+        public void SearchPersonInCityOrState()
+        {
+            Console.Write("Enter the city or state to search person : ");
+            string serachCityOrState = Console.ReadLine();
+            foreach (var data in addressBook)
+                foreach (var personFind in data.Value.FindAll(x => x.City.Equals(serachCityOrState) || x.State.Equals(serachCityOrState)))
+                    Console.WriteLine(personFind.FirstName + " " + personFind.LastName);
         }
     }
 }
